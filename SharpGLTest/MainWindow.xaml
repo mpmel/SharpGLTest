@@ -4,9 +4,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SharpGLTest"
+        xmlns:wpf="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Left" >
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Style.Setters>
+                        <Setter Property="Height" Value="23"/>
+
+                        <Setter Property="Padding" Value="7,0"/>
+                    </Style.Setters>
+                </Style>
+            </StackPanel.Resources>
+            <Button x:Name="CenteredRectangleButton" Click="CenteredRectangleButton_Click">Centered Rectangle</Button>
+
+            <Button x:Name="CodeProjectSampleButton" Click="CodeProjectSampleButton_Click">CodeProject Sample</Button>
+
+            <Button x:Name="CMPS415SampleButton" Click="CMPS415SampleButton_Click" >CMPS 415 Sample</Button>
+        </StackPanel>
+
+        <Grid>
+
+
+            <wpf:OpenGLControl x:Name="OpenGLControl" Resized="OpenGLControl_Resized"  DrawFPS="True" OpenGLInitialized="openGLControl1_Initialized" OpenGLDraw="openGLControl1_OpenGLDraw"  RenderContextType="FBO"
+                               KeyDown="OpenGLControl_KeyDown"></wpf:OpenGLControl>
+            
+        </Grid>
+    </DockPanel>
+    
+
 </Window>
